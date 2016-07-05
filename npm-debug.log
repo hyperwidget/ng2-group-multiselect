@@ -1,0 +1,49 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/hunter/.nvm/versions/v6.0.0/bin/node',
+1 verbose cli   '/home/hunter/.nvm/versions/v6.0.0/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'dev' ]
+2 info using npm@3.8.6
+3 info using node@v6.0.0
+4 verbose run-script [ 'predev', 'dev', 'postdev' ]
+5 info lifecycle ng2-group-multiselect@0.0.1~predev: ng2-group-multiselect@0.0.1
+6 silly lifecycle ng2-group-multiselect@0.0.1~predev: no script for predev, continuing
+7 info lifecycle ng2-group-multiselect@0.0.1~dev: ng2-group-multiselect@0.0.1
+8 verbose lifecycle ng2-group-multiselect@0.0.1~dev: unsafe-perm in lifecycle true
+9 verbose lifecycle ng2-group-multiselect@0.0.1~dev: PATH: /home/hunter/.nvm/versions/v6.0.0/lib/node_modules/npm/bin/node-gyp-bin:/home/hunter/Documents/ng2-group-multiselect/node_modules/.bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/home/hunter/.nvm/versions/v6.0.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hunter/.gem/ruby/2.3.0/bin:/home/hunter/.gem/ruby/2.3.0/bin:/home/hunter/.gem/ruby/2.3.0/bin:/home/hunter/.gem/ruby/2.3.0/bin:/home/hunter/.gem/ruby/2.3.0/bin:/home/hunter/.gem/ruby/2.3.0/bin:/home/hunter/.gem/ruby/2.3.0/bin:/home/hunter/.gem/ruby/2.3.0/bin:/home/hunter/.gem/ruby/2.3.0/bin:/home/hunter/.gem/ruby/2.3.0/bin
+10 verbose lifecycle ng2-group-multiselect@0.0.1~dev: CWD: /home/hunter/Documents/ng2-group-multiselect
+11 silly lifecycle ng2-group-multiselect@0.0.1~dev: Args: [ '-c',
+11 silly lifecycle   'cross-env NODE_ENV=development webpack-dev-server -d --inline --hot --progress --no-info' ]
+12 silly lifecycle ng2-group-multiselect@0.0.1~dev: Returned: code: 1  signal: null
+13 info lifecycle ng2-group-multiselect@0.0.1~dev: Failed to exec dev script
+14 verbose stack Error: ng2-group-multiselect@0.0.1 dev: `cross-env NODE_ENV=development webpack-dev-server -d --inline --hot --progress --no-info`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/home/hunter/.nvm/versions/v6.0.0/lib/node_modules/npm/lib/utils/lifecycle.js:239:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/home/hunter/.nvm/versions/v6.0.0/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:850:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
+15 verbose pkgid ng2-group-multiselect@0.0.1
+16 verbose cwd /home/hunter/Documents/ng2-group-multiselect
+17 error Linux 4.4.0-28-generic
+18 error argv "/home/hunter/.nvm/versions/v6.0.0/bin/node" "/home/hunter/.nvm/versions/v6.0.0/bin/npm" "run" "dev"
+19 error node v6.0.0
+20 error npm  v3.8.6
+21 error code ELIFECYCLE
+22 error ng2-group-multiselect@0.0.1 dev: `cross-env NODE_ENV=development webpack-dev-server -d --inline --hot --progress --no-info`
+22 error Exit status 1
+23 error Failed at the ng2-group-multiselect@0.0.1 dev script 'cross-env NODE_ENV=development webpack-dev-server -d --inline --hot --progress --no-info'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the ng2-group-multiselect package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     cross-env NODE_ENV=development webpack-dev-server -d --inline --hot --progress --no-info
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs ng2-group-multiselect
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls ng2-group-multiselect
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
