@@ -1,0 +1,11 @@
+{
+  "name": "ng2-group-multiselect",
+  "version": "1.0.0",
+  "description": "A multi-select component for angular 2 using grouping",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "author": "Hunter Jansen",
+  "license": "MIT"
+}
