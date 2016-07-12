@@ -1,3 +1,10 @@
 App contents
 
-<raw-multiselect [inbound]="demo1"></raw-multiselect>
+<raw-multiselect [inbound]="demo1" (outbound)="refreshValues($event)" [displayKey]="'name'" [allSelected]="true" [groupBy]="'type'"></raw-multiselect>
+
+Selected Values in multiselect
+<pre>
+    <span *ngFor="let demoVal of demoVals">
+        {{demoVal.name}}
+    </span>
+</pre>

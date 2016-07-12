@@ -1,4 +1,9 @@
 MultiSelect
+<input type="text" [(ngModel)]="filterVal">
 <div *ngIf="inbound.length > 0">
-    {{inbound}}
+    <div *ngFor="let option of inbound " (click)="toggleSelection(option);">
+        {{option[displayKey]}} {{option.selected}}
+    </div>
 </div>
+
+{{groups}}
