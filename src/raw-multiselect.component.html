@@ -1,9 +1,15 @@
 MultiSelect
 <input type="text" [(ngModel)]="filterVal">
+<button (click)="selectAll();">All</button>
+<button (click)="selectNone();">None</button>
+<!--<button (click)="selectAll();">All</button>-->
 <div *ngIf="inbound.length > 0">
-    <div *ngFor="let option of inbound " (click)="toggleSelection(option);">
-        {{option[displayKey]}} {{option.selected}}
+    <div *ngFor="let group of groups" (click)="toggleSelection(group);">
+        <h5>{{group.rawMSName}} | {{group.rawMSSelected}}</h5>
+        <div *ngFor="let option of inbound" (click)="toggleSelection(option, $event);">
+            <template [ngIf]="option[groupBy] === group.rawMSName">
+                {{option[displayKey]}} {{option.rawMSSelected}}
+            </template>
+        </div>
     </div>
 </div>
-
-{{groups}}
