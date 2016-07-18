@@ -1,6 +1,12 @@
 {
   "name": "ng2-group-multiselect",
   "version": "0.0.1",
+  "author": "Hunter Jansen<hunter@hyperwidget.com>(hyperwidget.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rawkamatic/ng2-group-multiselect"
+  },
   "description": "A multi-select component for angular 2 using grouping",
   "keywords": [
     "angular2",
@@ -17,7 +23,6 @@
     "lint-ts": "tslint './src/**/*.ts'",
     "lint-js": "eslint '**/*.js' --ignore-path .gitignore",
     "lint-css": "stylelint './src/**/*.css'",
-    "postinstall": "npm run typings && npm run build",
     "start": "cross-env NODE_ENV=production node server/node-server.js",
     "pretest": "rimraf coverage/",
     "test": "karma start",
@@ -25,13 +30,10 @@
     "test:watch": "karma start --singleRun false",
     "typings": "rimraf typings/ && typings install"
   },
-  "author": "Hunter Jansen",
-  "license": "MIT",
   "dependencies": {
     "express": "^4.13.4",
     "helmet": "^2.0.0",
     "http-proxy": "^1.13.2",
-    "ng2-bootstrap": "^1.0.17",
     "winston": "^2.1.1"
   },
   "devDependencies": {

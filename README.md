@@ -4,6 +4,9 @@
 
 It allows the entered values to be organized by groups to allow for easier sorting, and selection of all items in a group.
 
+# **DISCLAIMER** 
+This project is still in the works and as such, I strongly recommend against using it in its current state, as there will be sweeping changes during this period.
+-July 18, 2016
 
 ## Demo
 [link](link)
@@ -47,7 +50,7 @@ In your template:
 <raw-multiselect [inbound]="demo1"...></raw-multiselect>
 ```
 In your class:
-```
+```typescript
 this.demo1 = [{id: 1, dispVal: 'Blue Jays'}, 
     {id: 2, dispVal: 'Maple Leafs'}, 
     {id: 3, dispVal: 'Raptors'}, 
@@ -55,7 +58,7 @@ this.demo1 = [{id: 1, dispVal: 'Blue Jays'},
 ];
 ```
 **OR**
-```
+```typescript
 this.demo1 = [{id: 1, dispVal: 'Blue Jays'}, 
     {id: 2, dispVal: 'Maple Leafs', selected: true}, 
     {id: 3, dispVal: 'Raptors'}, 
@@ -88,7 +91,7 @@ In your template:
 <raw-multiselect [displayKey]="'dispVal"...></raw-multiselect>
 ```
 In your class:
-```
+```typescript
 this.demo1 = [{id: 1, dispVal: 'Blue Jays'}, 
     {id: 2, dispVal: 'Maple Leafs'}, 
     {id: 3, dispVal: 'Raptors'}, 
@@ -109,7 +112,7 @@ In your template:
 <raw-multiselect [groupBy]="'type'"...></raw-multiselect>
 ```
 In your class:
-```
+```typescript
 this.demo2 = [{ id: 1, name: "Rose Tyler", type: "companion" }, 
     { id: 2, name: "Donna Noble", type: "companion" }, 
     { id: 3, name: "Martha Jones", type: "companion" }, 
