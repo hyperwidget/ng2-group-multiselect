@@ -1,11 +1,23 @@
-App contents
+<h1>Ng2-Multi-Select</h1>
 
-<raw-multiselect [inbound]="demo1" (outbound)="refreshValues($event)" [displayKey]="'name'" [allSelected]="true" [groupBy]="'type'"></raw-multiselect>
+<h4>Without Grouping</h4>
+<raw-multiselect [inbound]="demo1" (outbound)="refreshDemo1Values($event)" [displayKey]="'dispVal'" [allSelected]="true"></raw-multiselect>
 
 <br/>
 Selected Values in multiselect
 <pre>
-    <span *ngFor="let demoVal of demoVals">
+    <span *ngFor="let demoVal of demo1Vals">
+        {{demoVal.dispVal}}
+    </span>
+</pre>
+
+<h4>With Grouping</h4>
+<raw-multiselect [inbound]="demo2" (outbound)="refreshDemo2Values($event)" [displayKey]="'name'" [allSelected]="true" [groupBy]="'type'"></raw-multiselect>
+
+<br/>
+Selected Values in multiselect
+<pre>
+    <span *ngFor="let demoVal of demo2Vals">
         {{demoVal.name}}
     </span>
 </pre>

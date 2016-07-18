@@ -30,6 +30,7 @@ export class MultiSelectComponent implements OnInit {
   @Output() outbound: EventEmitter<Array<any>> = new EventEmitter();
 
   groups: Array<any>;
+  dropDownVisible: boolean = false;
 
   constructor() {
   }
@@ -112,16 +113,20 @@ export class MultiSelectComponent implements OnInit {
 
   createGroups() {
     this.groups = [];
-    let groupVals = [];
-    this.inbound.forEach(item => {
-      if (groupVals.indexOf(item[this.groupBy].toLowerCase()) === -1) {
-        groupVals.push(item[this.groupBy].toLowerCase());
-      }
-    });
+    if (this.groupBy) {
+      let groupVals = [];
+      this.inbound.forEach(item => {
+        if (groupVals.indexOf(item[this.groupBy].toLowerCase()) === -1) {
+          groupVals.push(item[this.groupBy].toLowerCase());
+        }
+      });
 
-    groupVals.forEach(group => {
-      this.groups.push({ rawMSName: group, rawMSSelected: false, rawMSIsGroup: true });
-    });
+      groupVals.forEach(group => {
+        this.groups.push({ rawMSName: group, rawMSSelected: false, rawMSIsGroup: true });
+      });
+    } else {
+      this.groups = [{ name: "rawMSPlaceHolderGroup" }];
+    }
   }
 
 

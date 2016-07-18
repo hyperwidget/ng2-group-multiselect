@@ -1,14 +1,32 @@
-MultiSelect
-<input type="text" [(ngModel)]="filterVal">
-<button (click)="selectAll();">All</button>
-<button (click)="selectNone();">None</button>
-<!--<button (click)="selectAll();">All</button>-->
-<div *ngIf="inbound.length > 0">
-    <div *ngFor="let group of groups" (click)="toggleSelection(group);">
-        <h5>{{group.rawMSName}} | {{group.rawMSSelected}}</h5>
-        <div *ngFor="let option of inbound" (click)="toggleSelection(option, $event);">
-            <template [ngIf]="option[groupBy] === group.rawMSName">
-                {{option[displayKey]}} {{option.rawMSSelected}}
+<button (click)="dropDownVisible=!dropDownVisible;" class="rawMSButton">
+    <!--TDODO -- This will need to be figured out for NO options selected-->
+        <span *ngFor="let val of inbound; let isLast=last">
+            <template [ngIf]="val.rawMSSelected">
+                {{val[displayKey]}}{{isLast ? '&#9660;' : ', '}}
+            </template>
+        </span>
+</button>
+<div *ngIf="dropDownVisible" class="rawMSDropDown">
+    <div class="rawMSControllerBox">
+        <div>
+            <input type="text" [(ngModel)]="filterVal" aria-placeholder="Filter Options">
+        </div>
+        <div>
+            <button (click)="selectAll();">All</button>
+            <button (click)="selectNone();">None</button>
+        </div>
+    </div>
+    <div *ngIf="inbound.length > 0" class="rawMSOptionsBox">
+        <div *ngFor="let group of groups" (click)="toggleSelection(group);" class="rawMSGroup">
+            <h4 class="option" [ngClass]="{selected: group.rawMSSelected}" *ngIf="groups[0].name!=='rawMSPlaceHolderGroup';">{{group.rawMSName}}
+                <span class="rawMSRight" *ngIf="group.rawMSSelected">&#10003;</span>
+            </h4>
+            <template ngFor let-option [ngForOf]="inbound">
+                <div *ngIf="option[groupBy] === group.rawMSName || groups[0]['displayKey']==='rawMSPlaceHolderGroup';" (click)="toggleSelection(option, $event);"
+                    class="option listItem" [ngClass]="{selected: option.rawMSSelected}">
+                    {{option[displayKey]}}
+                    <span class="rawMSRight" *ngIf="option.rawMSSelected">&#10003;</span>
+                </div>
             </template>
         </div>
     </div>

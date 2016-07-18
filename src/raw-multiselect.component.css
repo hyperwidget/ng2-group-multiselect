@@ -1,0 +1,51 @@
+.rawMSButton{
+    border-radius: 4px;
+}
+
+.rawMSDropDown{
+    position: absolute;
+    background-color: #FFF;
+    z-index: 999;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .15);
+}
+
+.rawMSControllerBox, .rawMSOptionsBox{
+    padding: 15px;
+    margin: 0;
+}
+
+.rawMSControllerBox{
+    border-bottom: 1px solid rgba(221,221,221, 1);
+}
+
+.rawMSGroup{
+}
+
+h4.option{
+    margin-bottom: 5px;
+}
+
+.option{
+    cursor: pointer;
+}
+
+.option.selected{
+    background-color: rgba(214,214,214, 1)
+}
+
+.option.listItem{
+    display: inline-block;
+    margin-right: 10px;
+    min-width: 250px;
+}
+
+/*Utility Classes*/
+.rawMSRight{
+    float:right;
+}
+
+.rawMSLeft{
+    float: left;
+}
