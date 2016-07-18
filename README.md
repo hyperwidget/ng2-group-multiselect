@@ -8,6 +8,17 @@ It allows the entered values to be organized by groups to allow for easier sorti
 This project is still in the works and as such, I strongly recommend against using it in its current state, as there will be sweeping changes during this period.
 -July 18, 2016
 
+# TODO:
+
+ * Demo Site
+ * Ensure NPM install is working as expected
+ * Unit Tests
+ * Various coding tweaks
+ * Handle none selected
+ * Styling updates
+ * Trim package.json
+
+
 ## Demo
 [link](link)
 
@@ -46,7 +57,7 @@ If that's the case then the object must have a rawMSSelected: true property.
 **Example**
 
 In your template:
-```
+```html
 <raw-multiselect [inbound]="demo1"...></raw-multiselect>
 ```
 In your class:
@@ -71,11 +82,11 @@ This is the callback that the component will trigger when the selected data has 
 **Example**
 
 In your template:
-```
+```html
 <raw-multiselect (outbound)="refreshDemo1Values($event)"...></raw-multiselect>
 ```   
 In your class:
-```
+```typescript
 public refreshDemo1Values(value: any): void {
     this.demo1Vals = value;
 }
@@ -87,7 +98,7 @@ This is the property of your objects that you want to use to display in the sele
 **Example**
 
 In your template:
-```
+```html
 <raw-multiselect [displayKey]="'dispVal"...></raw-multiselect>
 ```
 In your class:
@@ -108,7 +119,7 @@ This is the property that you'd like to group your items by.
 **Example**
 
 In your template:
-```
+```html
 <raw-multiselect [groupBy]="'type'"...></raw-multiselect>
 ```
 In your class:
@@ -127,7 +138,7 @@ This is a boolean option that, if set to true, will automatically set all of you
 **Example**
 
 In your template:
-```
+```html
 <raw-multiselect [allSelected]="true"...></raw-multiselect>
 ```
 
