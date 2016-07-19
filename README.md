@@ -10,7 +10,7 @@ This project is still in the works and as such, I strongly recommend against usi
 
 # TODO:
 
- * Demo Site
+ * ~~Demo Site~~
  * Ensure NPM install is working as expected
  * Unit Tests
  * Various coding tweaks
