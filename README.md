@@ -11,7 +11,7 @@ This project is still in the works and as such, I strongly recommend against usi
 # TODO:
 
  * ~~Demo Site~~
- * Ensure NPM install is working as expected
+ * ~~Ensure NPM install is working as expected~~
  * Unit Tests
  * Various coding tweaks
  * Handle none selected
@@ -20,7 +20,7 @@ This project is still in the works and as such, I strongly recommend against usi
 
 
 ## Demo
-[link](link)
+[Demo](hyperwidget.com/ng2-group-multiselect)
 
 ## Installation:
 
@@ -32,7 +32,7 @@ npm install ng2-group-multiselect
 
 ```typescript
 import{Component} from '@angular2/core';
-import {MultiSelect} from 'raw-multiselect';
+import {MultiSelect} from 'ng2-group-multiselect';
 
 @Component({
     template: `
