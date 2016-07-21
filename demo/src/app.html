@@ -21,3 +21,14 @@ Selected Values in multiselect
         {{demoVal.name}}
     </span>
 </pre>
+
+<h4>Without Select All</h4>
+<raw-multiselect [inbound]="demo3" (outbound)="refreshDemo3Values($event)" [displayKey]="'name'" [groupBy]="'type'"></raw-multiselect>
+
+<br/>
+Selected Values in multiselect
+<pre>
+    <span *ngFor="let demoVal of demo3Vals">
+        {{demoVal.name}}
+    </span>
+</pre>

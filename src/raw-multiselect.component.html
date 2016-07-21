@@ -1,10 +1,11 @@
 <button (click)="dropDownVisible=!dropDownVisible;" class="rawMSButton">
     <!--TDODO -- This will need to be figured out for NO options selected-->
-        <span *ngFor="let val of inbound; let isLast=last">
-            <template [ngIf]="val.rawMSSelected">
+    <template ngIf="selectedItems.length > 0">
+        <span *ngFor="let val of selectedItems; let isLast=last">
                 {{val[displayKey]}}{{isLast ? '&#9660;' : ', '}}
-            </template>
         </span>
+    </template>
+    <span *ngIf="selectedItems.length === 0">None Selected</span>
 </button>
 <div *ngIf="dropDownVisible" class="rawMSDropDown">
     <div class="rawMSControllerBox">

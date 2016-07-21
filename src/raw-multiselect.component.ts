@@ -31,20 +31,14 @@ export class MultiSelectComponent implements OnInit {
 
   groups: Array<any>;
   dropDownVisible: boolean = false;
+  selectedItems: Array<any>;
 
   constructor() {
+    this.selectedItems = [];
   }
 
   getSelectedItems(items): Array<any> {
-    let selectedVals = [];
-    if (this.inbound.length > 0) {
-      this.inbound.forEach(object => {
-        if (object.rawMSSelected) {
-          selectedVals.push(object);
-        }
-      });
-    }
-    return selectedVals;
+    return this.selectedItems;
   }
 
   toggleSelection(item, event) {
@@ -52,11 +46,19 @@ export class MultiSelectComponent implements OnInit {
       item.rawMSSelected = !item.rawMSSelected;
       this.inbound.forEach(subItem => {
         if (subItem[this.groupBy] === item.rawMSName) {
-          this.setItemSelected(subItem, item.rawMSSelected);
+          if (item.rawMSSelected) {
+            this.selectItem(subItem);
+          } else {
+            this.deselectItem(subItem);
+          }
         }
       });
     } else {
-      item.rawMSSelected = !item.rawMSSelected;
+      if (item.rawMSSelected) {
+        this.deselectItem(item);
+      } else {
+        this.selectItem(item);
+      }
       if (this.groups.length > 0) {
         this.checkGroupSelected(item[this.groupBy]);
       }
@@ -79,16 +81,18 @@ export class MultiSelectComponent implements OnInit {
     group.rawMSSelected = noCount === 0;
   }
 
-  setItemSelected(item, selected) {
-    item.rawMSSelected = selected;
-  }
-
   selectItem(item) {
     item.rawMSSelected = true;
+    this.selectedItems = [...this.selectedItems, item];
   }
 
   deselectItem(item) {
     item.rawMSSelected = false;
+    const index = this.selectedItems.indexOf(item);
+    this.selectedItems = [
+      ...this.selectedItems.slice(0, index),
+      ...this.selectedItems.slice(index + 1)
+    ];
   }
 
   selectAll() {
@@ -98,6 +102,8 @@ export class MultiSelectComponent implements OnInit {
     this.inbound.forEach(object => {
       object.rawMSSelected = true;
     });
+
+    this.selectedItems = [...this.inbound];
     this.notifyParent();
   }
 
@@ -108,6 +114,8 @@ export class MultiSelectComponent implements OnInit {
     this.inbound.forEach(object => {
       object.rawMSSelected = false;
     });
+
+    this.selectedItems = [];
     this.notifyParent();
   }
 
@@ -128,7 +136,6 @@ export class MultiSelectComponent implements OnInit {
       this.groups = [{ name: "rawMSPlaceHolderGroup" }];
     }
   }
-
 
   ngOnInit() {
     this.createGroups();
