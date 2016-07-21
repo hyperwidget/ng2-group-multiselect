@@ -10,6 +10,8 @@ import {
   OnInit
 } from "@angular/core";
 
+import {FilterPipe} from './raw-multiselect.pipe';
+
 
 @Component({
   selector: "raw-multiselect",
@@ -18,7 +20,7 @@ import {
   encapsulation: ViewEncapsulation.None,
   styles: [require("./raw-multiselect.component.css")],
   template: require("./raw-multiselect.component.html"),
-  providers: []
+  pipes: [FilterPipe]
 })
 
 export class MultiSelectComponent implements OnInit {

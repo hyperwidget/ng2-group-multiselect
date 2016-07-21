@@ -22,7 +22,7 @@
             <h4 class="option" [ngClass]="{selected: group.rawMSSelected}" *ngIf="groups[0].name!=='rawMSPlaceHolderGroup';">{{group.rawMSName}}
                 <span class="rawMSRight" *ngIf="group.rawMSSelected">&#10003;</span>
             </h4>
-            <template ngFor let-option [ngForOf]="inbound">
+            <template ngFor let-option [ngForOf]="inbound | filter:filterVal:displayKey">
                 <div *ngIf="option[groupBy] === group.rawMSName || groups[0]['displayKey']==='rawMSPlaceHolderGroup';" (click)="toggleSelection(option, $event);"
                     class="option listItem" [ngClass]="{selected: option.rawMSSelected}">
                     {{option[displayKey]}}

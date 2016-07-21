@@ -13,7 +13,7 @@ This project is still in the works and as such, I strongly recommend against usi
  * ~~Demo Site~~
  * ~~Ensure NPM install is working as expected~~
  * ~~Handle none selected~~
- * Create pipe for filtering
+ * ~~Create pipe for filtering~~
  * Unit Tests
  * Various coding tweaks
  * Styling updates
