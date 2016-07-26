@@ -33,7 +33,6 @@ module.exports = (config) => {
         loaders: [
           loaders.tsTest,
           loaders.html,
-          loaders.svg,
           loaders.css,
         ],
         postLoaders: [
@@ -55,13 +54,6 @@ module.exports = (config) => {
       reporters: [
         { type: 'json' },
         { type: 'html' },
-        // reporters supporting the `file` property, use `subdir` to directly
-        // output them in the `dir` directory
-        {
-          type: 'cobertura',
-          subdir: '../../../../../../reports/ux',
-          file: 'coverage.xml',
-        },
       ],
       dir: './coverage/',
       subdir: (browser) => {
