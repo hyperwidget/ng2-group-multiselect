@@ -14,7 +14,7 @@ This project is still in the works and as such, I strongly recommend against usi
  * ~~Ensure NPM install is working as expected~~
  * ~~Handle none selected~~
  * ~~Create pipe for filtering~~
- * Unit Tests
+ * ~~Unit Tests~~
  * Various coding tweaks
  * Styling updates
  * Trim package.json

@@ -10,8 +10,7 @@ import {
   OnInit
 } from "@angular/core";
 
-import {FilterPipe} from './raw-multiselect.pipe';
-
+import {FilterPipe} from "./raw-multiselect.pipe";
 
 @Component({
   selector: "raw-multiselect",
@@ -39,7 +38,7 @@ export class MultiSelectComponent implements OnInit {
     this.selectedItems = [];
   }
 
-  getSelectedItems(items): Array<any> {
+  getSelectedItems(): Array<any> {
     return this.selectedItems;
   }
 
@@ -70,12 +69,11 @@ export class MultiSelectComponent implements OnInit {
   }
 
   notifyParent() {
-    this.outbound.emit(this.getSelectedItems(this.inbound));
+    this.outbound.emit(this.getSelectedItems());
   }
 
   checkGroupSelected(groupName) {
     let group = this.groups.filter(item => item.rawMSName === groupName)[0];
-
     let noCount = this.inbound.filter(item => item[this.groupBy] === groupName)
       .reduce(function (count, item) {
         return count + !item.rawMSSelected | 0;
