@@ -3,7 +3,13 @@ import {
     describe,
     expect,
     it,
+    TestComponentBuilder,
+    inject
 } from '@angular/core/testing';
+
+import {
+    ElementRef
+} from "@angular/core";
 
 import { MultiSelectComponent } from './index';
 
@@ -15,7 +21,7 @@ describe('MultiSelect: Component', () => {
     });
 
     beforeEach(() => {
-        this.component = new MultiSelectComponent();
+        this.component = new MultiSelectComponent(new ElementRef('div'));
     });
 
     it('should start with an empty selectedItems', () => {
@@ -145,6 +151,39 @@ describe('MultiSelect: Component', () => {
 
         expect(this.component.getSelectedItems()).toEqual([{ rawMSSelected: true, name: 'removeMe' }, { rawMSSelected: true, name: 'keepMe' }, { rawMSSelected: true, name: 'keepMe2' }]);
     });
+
+    it('should correctly toggle on outside click', inject([TestComponentBuilder], (tcb) => {
+
+        return tcb
+            .overrideProviders(MultiSelectComponent)
+            .createAsync(MultiSelectComponent)
+            .then((fixture) => {
+                let nativeElement = fixture.nativeElement;
+                fixture.detectChanges();
+
+                fixture.componentInstance.dropDownVisible = true;
+                document.body.click();
+                fixture.detectChanges();
+
+                expect(fixture.componentInstance.dropDownVisible).toBe(false);
+            });
+    }));
+
+    it('should correctly not toggle on inside click', inject([TestComponentBuilder], (tcb) => {
+        return tcb
+            .overrideProviders(MultiSelectComponent)
+            .createAsync(MultiSelectComponent)
+            .then((fixture) => {
+                let nativeElement = fixture.nativeElement;
+                fixture.detectChanges();
+
+                fixture.componentInstance.dropDownVisible = true;
+                document.getElementById('root1').click();
+
+                expect(fixture.componentInstance.dropDownVisible).toBe(true);
+            });
+    }));
+
 });
 
 

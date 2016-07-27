@@ -42,6 +42,10 @@ h4.option {
     margin-bottom: 5px;
 }
 
+.rawMSGroup:first-of-type>h4 {
+    margin-top: 0;
+}
+
 .option {
     cursor: pointer;
 }

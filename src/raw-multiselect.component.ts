@@ -7,7 +7,8 @@ import {
   Input,
   Output,
   EventEmitter,
-  OnInit
+  OnInit,
+  ElementRef
 } from "@angular/core";
 
 import {FilterPipe} from "./raw-multiselect.pipe";
@@ -15,6 +16,9 @@ import {FilterPipe} from "./raw-multiselect.pipe";
 @Component({
   selector: "raw-multiselect",
   directives: [],
+  host: {
+    "(document:click)": "collapse($event)",
+  },
   // Global styles imported in the app component.
   encapsulation: ViewEncapsulation.None,
   styles: [require("./raw-multiselect.component.css")],
@@ -34,7 +38,7 @@ export class MultiSelectComponent implements OnInit {
   dropDownVisible: boolean = false;
   selectedItems: Array<any>;
 
-  constructor() {
+  constructor(private _eref: ElementRef) {
     this.selectedItems = [];
   }
 
@@ -135,6 +139,15 @@ export class MultiSelectComponent implements OnInit {
     } else {
       this.groups = [{ name: "rawMSPlaceHolderGroup" }];
     }
+  }
+
+  collapse() {
+    // Checks to see if click is inside element; if not, collapse element
+    if (!this._eref.nativeElement.contains(event.target)) {
+      this.dropDownVisible = false;
+    }
+    console.log(this.dropDownVisible);
+    
   }
 
   ngOnInit() {

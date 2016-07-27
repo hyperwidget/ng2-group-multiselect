@@ -15,8 +15,8 @@ This project is still in the works and as such, I strongly recommend against usi
  * ~~Handle none selected~~
  * ~~Create pipe for filtering~~
  * ~~Unit Tests~~
- * Various coding tweaks
- * Styling updates
+ * ~~Various coding tweaks~~
+ * ~~Styling updates~~
  * Trim package.json
 
 
