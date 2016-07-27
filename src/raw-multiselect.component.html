@@ -10,11 +10,11 @@
 <div *ngIf="dropDownVisible" class="rawMSDropDown">
     <div class="rawMSControllerBox">
         <div>
-            <input type="text" [(ngModel)]="filterVal" aria-placeholder="Filter Options">
+            <input type="search" [(ngModel)]="filterVal" class="rawMSInput" placeholder="Filter Options">
         </div>
         <div>
-            <button (click)="selectAll();">All</button>
-            <button (click)="selectNone();">None</button>
+            <button (click)="selectAll();" class="rawMSButton">All</button>
+            <button (click)="selectNone();" class="rawMSButton">None</button>
         </div>
     </div>
     <div *ngIf="inbound.length > 0" class="rawMSOptionsBox">
