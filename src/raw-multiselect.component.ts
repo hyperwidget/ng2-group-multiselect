@@ -146,8 +146,6 @@ export class MultiSelectComponent implements OnInit {
     if (!this._eref.nativeElement.contains(event.target)) {
       this.dropDownVisible = false;
     }
-    console.log(this.dropDownVisible);
-    
   }
 
   ngOnInit() {
