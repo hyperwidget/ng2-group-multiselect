@@ -1,34 +1,196 @@
-<h1>Ng2-Multi-Select</h1>
+<div class="container ">
+    <div class="row">
+        <div class="jumbotron">
+            <h1>Ng2-Multi-Select</h1>
+            <p>An Angular 2 component that allows the selection of multiple items from a select style dropdown box. It allows
+                the entered values to be organized by groups to allow for easier sorting, and selection of all items in a
+                group.
+            </p>
+            <p><a class="btn btn-primary btn-lg" target="_blank" href="https://github.com/rawkamatic/ng2-group-multiselect"
+                    role="button">Check it out on github</a></p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9" role="main">
+            <h1 class="page-header" style="margin-top:0;">
+                Demos
+            </h1>
 
-<h4>Without Grouping</h4>
-<raw-multiselect [inbound]="demo1" (outbound)="refreshDemo1Values($event)" [displayKey]="'dispVal'" [allSelected]="true"></raw-multiselect>
+            <h4><a name="without-grouping"></a> Without Grouping</h4>
+            <raw-multiselect [inbound]="demo1" (outbound)="refreshDemo1Values($event)" [displayKey]="'dispVal'" [allSelected]="true"></raw-multiselect>
 
-<br/>
-Selected Values in multiselect
-<pre>
-    <span *ngFor="let demoVal of demo1Vals">
-        {{demoVal.dispVal}}
-    </span>
-</pre>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    Selected Values in multiselect:
+                </div>
+                <div class="panel-footer">
+                    <span *ngFor="let demoVal of demo1Vals; let isLast=last">
+                        {{demoVal.dispVal}}{{isLast ? '' : ', '}}
+                    </span>
+                </div>
+            </div>
 
-<h4>With Grouping</h4>
-<raw-multiselect [inbound]="demo2" (outbound)="refreshDemo2Values($event)" [displayKey]="'name'" [allSelected]="true" [groupBy]="'type'"></raw-multiselect>
+            <div>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#demo1Markdown" aria-controls="demo1Markdown" role="tab" data-toggle="tab">Markdown</a></li>
+                    <li role="presentation"><a href="#demo1ontroller" aria-controls="demo1ontroller" role="tab" data-toggle="tab">Controller</a></li>
+                </ul>
 
-<br/>
-Selected Values in multiselect
-<pre>
-    <span *ngFor="let demoVal of demo2Vals">
-        {{demoVal.name}}
-    </span>
-</pre>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="demo1Markdown">
+                        <pre>
+                            <code class="html">
+        &lt;raw-multiselect 
+            [inbound]=&quot;demo1&quot; 
+            (outbound)=&quot;refreshDemo1Values($event)&quot; 
+            [displayKey]=&quot;'dispVal'&quot;
+            [allSelected]=&quot;true&quot;&gt; 
+        &lt;/raw-multiselect&gt;
+                            </code>
+                        </pre>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="demo1ontroller">
+                        <pre>
+                            <code class="typescript">
+        this.demo1 = [{id: 1, dispVal: "Blue Jays"}, 
+            {id: 2, dispVal: "Maple Leafs"}, 
+            {id: 3, dispVal: "Raptors"}, 
+            {id: 4, dispVal: "Argos"}
+        ]; 
+            
+        public refreshDemo1Values(value: any): void { 
+            this.demo1Vals = value; 
+        }
 
-<h4>Without Select All</h4>
-<raw-multiselect [inbound]="demo3" (outbound)="refreshDemo3Values($event)" [displayKey]="'name'" [groupBy]="'type'"></raw-multiselect>
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
 
-<br/>
-Selected Values in multiselect
-<pre>
-    <span *ngFor="let demoVal of demo3Vals">
-        {{demoVal.name}}
-    </span>
-</pre>
+            <h4><a name="with-grouping"></a>With Grouping</h4>
+            <raw-multiselect [inbound]="demo2" (outbound)="refreshDemo2Values($event)" [displayKey]="'name'" [allSelected]="true" [groupBy]="'type'"></raw-multiselect>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    Selected Values in multiselect:
+                </div>
+                <div class="panel-footer">
+                    <span *ngFor="let demoVal of demo2Vals; let isLast=last">
+                        {{demoVal.name}}{{isLast ? '' : ', '}}
+                    </span>
+                </div>
+            </div>
+            <div>
+                <!-- Tab panes -->
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#demo2Markdown" aria-controls="demo2Markdown" role="tab" data-toggle="tab">Markdown</a></li>
+                        <li role="presentation"><a href="#demo2Controller" aria-controls="demo2Controller" role="tab" data-toggle="tab">Controller</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="demo2Markdown">
+                            <pre>
+                                <code class="html">
+        &lt;raw-multiselect 
+            [inbound]=&quot;demo2&quot; 
+            (outbound)=&quot;refreshDemo2Values($event)&quot; 
+            [displayKey]=&quot;'name'&quot;
+            [groupBy]=&quot;'type'&quot;
+            [allSelected]=&quot;true&quot;&gt; 
+        &lt;/raw-multiselect&gt;
+                            </code>
+                            </pre>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="demo2Controller">
+                            <pre>
+                                <code class="typescript">
+        this.demo2 = [{ id: 1, name: "Rose Tyler", type: "companion" }, 
+            { id: 2, name: "Donna Noble", type: "companion" }, 
+            { id: 3, name: "Martha Jones", type: "companion" }, 
+            { id: 4, name: "Dalek", type: "enemy" }
+        ];
+
+            
+        public refreshDemo2Values(value: any): void { 
+            this.demo2Vals = value; 
+        }
+
+                            </code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+
+                <h4><a name="without-select-all"></a>Without Select All</h4>
+                <raw-multiselect [inbound]="demo3" (outbound)="refreshDemo3Values($event)" [displayKey]="'name'" [groupBy]="'type'"></raw-multiselect>
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Selected Values in multiselect:
+                    </div>
+                    <div class="panel-footer">
+                        <span *ngFor="let demoVal of demo3Vals; let isLast=last">
+                        {{demoVal.name}}{{isLast ? '' : ', '}}
+                    </span>
+                    </div>
+                </div>
+                <!-- Tab panes -->
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#demo3Markdown" aria-controls="demo3Markdown" role="tab" data-toggle="tab">Markdown</a></li>
+                        <li role="presentation"><a href="#demo3Controller" aria-controls="demo3Controller" role="tab" data-toggle="tab">Controller</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="demo3Markdown">
+                            <pre>
+                                <code class="html">
+        &lt;raw-multiselect 
+            [inbound]=&quot;demo1&quot; 
+            (outbound)=&quot;refreshDemo3Values($event)&quot; 
+            [displayKey]=&quot;'name'&quot;
+            [groupBy]=&quot;'type'&quot;
+        &lt;/raw-multiselect&gt;
+                            </code>
+                            </pre>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="demo3Controller">
+                            <pre>
+                                <code class="typescript">
+        this.demo3 = [{ id: 1, name: "Rose Tyler", type: "companion" }, 
+            { id: 2, name: "Donna Noble", type: "companion" }, 
+            { id: 3, name: "Martha Jones", type: "companion" }, 
+            { id: 4, name: "Dalek", type: "enemy" }
+        ];
+            
+        public refreshDemo3Values(value: any): void { 
+            this.demo3Vals = value; 
+        }
+
+                            </code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" role="complementary" >
+            <nav data-spy="affix" data-offset-top="400" data-offset-bottom="0">
+                <ul>
+                    <li><a href="#without-grouping">Without Grouping</a></li>
+                    <li><a href="#with-grouping">With Grouping</a></li>
+                    <li><a href="#without-select-all">Without Select All</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<script>hljs.initHighlightingOnLoad();</script>

@@ -18,6 +18,7 @@ This project is still in the works and as such, I strongly recommend against usi
  * ~~Various coding tweaks~~
  * ~~Styling updates~~
  * Trim package.json
+ * ~~Improve Demo page~~
 
 
 ## Demo
