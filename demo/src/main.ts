@@ -6,7 +6,6 @@ import "ts-helpers";
 
 import { enableProdMode, provide } from "@angular/core";
 import { bootstrap } from "@angular/platform-browser-dynamic";
-import { ROUTER_PROVIDERS } from "@angular/router-deprecated";
 import { APP_BASE_HREF } from "@angular/common/index";
 import { HTTP_PROVIDERS } from "@angular/http";
 import { DemoAppComponent } from "./app.ts";
@@ -20,7 +19,6 @@ if (__PRODUCTION__) {
 }
 
 bootstrap(DemoAppComponent, [
-  ROUTER_PROVIDERS,
   HTTP_PROVIDERS,
   provide(APP_BASE_HREF, { useValue: "/" })
 ]);
