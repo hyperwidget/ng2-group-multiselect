@@ -128,7 +128,7 @@ In your template:
 ```
 
 # Contribution/Feature requests
-Find something wrong? Want something new? Create an issue, fork it or even just drop me a line @ hunter@hyperwidget.com
+Find something wrong? Want something new? Create an issue, fork it or even just drop me a line @ hunter@hyperwidget.com or @hunter_jansen/@calmlycoding on twitter!
 
 # Author
 [Hunter Jansen](github.com/rawkamatic)
