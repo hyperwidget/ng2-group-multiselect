@@ -4,23 +4,6 @@
 
 It allows the entered values to be organized by groups to allow for easier sorting, and selection of all items in a group.
 
-# **DISCLAIMER** 
-This project is still in the works and as such, I strongly recommend against using it in its current state, as there will be sweeping changes during this period.
--July 18, 2016
-
-# TODO:
-
- * ~~Demo Site~~
- * ~~Ensure NPM install is working as expected~~
- * ~~Handle none selected~~
- * ~~Create pipe for filtering~~
- * ~~Unit Tests~~
- * ~~Various coding tweaks~~
- * ~~Styling updates~~
- * Trim package.json
- * ~~Improve Demo page~~
-
-
 ## Demo
 [Demo](hyperwidget.com/ng2-group-multiselect)
 
@@ -144,6 +127,8 @@ In your template:
 <raw-multiselect [allSelected]="true"...></raw-multiselect>
 ```
 
+# Contribution/Feature requests
+Find something wrong? Want something new? Create an issue, fork it or even just drop me a line @ hunter@hyperwidget.com
 
 # Author
 [Hunter Jansen](github.com/rawkamatic)
