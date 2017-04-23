@@ -5,7 +5,7 @@
 It allows the entered values to be organized by groups to allow for easier sorting, and selection of all items in a group.
 
 ## Demo
-[Demo](hyperwidget.com/ng2-group-multiselect)
+[Demo](http://hyperwidget.com/ng2-group-multiselect/)
 
 ## Installation:
 
