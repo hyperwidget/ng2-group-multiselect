@@ -1,4 +1,4 @@
-import {MultiSelectComponent} from './src';
+import { MultiSelectComponent } from './src';
 export * from './src';
 
 export default {

@@ -1,72 +1,44 @@
-'use strict';
+// Karma configuration file, see link for more information
+// https://karma-runner.github.io/0.13/config/configuration-file.html
 
-const loaders = require('./webpack/loaders');
-const webpack = require('webpack');
-
-module.exports = (config) => {
+module.exports = function (config) {
   config.set({
-    frameworks: [
-      'jasmine',
-      'source-map-support',
+    basePath: '',
+    frameworks: ['jasmine', '@angular/cli'],
+    plugins: [
+      require('karma-jasmine'),
+      require('karma-chrome-launcher'),
+      require('karma-jasmine-html-reporter'),
+      require('karma-coverage-istanbul-reporter'),
+      require('@angular/cli/plugins/karma')
     ],
-
-    files: ['./src/tests.entry.ts'],
-
+    client:{
+      clearContext: false // leave Jasmine Spec Runner output visible in browser
+    },
+    files: [
+      { pattern: './src/test.ts', watched: false }
+    ],
     preprocessors: {
-      './src/**/*.ts': [
-        'webpack',
-        'sourcemap',
-      ],
-      './src/**/!(*.spec|tests.*).ts': [
-        'coverage',
-      ],
+      './src/test.ts': ['@angular/cli']
     },
-
-    webpack: {
-      entry: './src/tests.entry.ts',
-      devtool: 'inline-source-map',
-      verbose: true,
-      resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
-      },
-      module: {
-        loaders: [
-          loaders.tsTest,
-          loaders.html,
-          loaders.css,
-        ],
-        postLoaders: [
-          loaders.istanbulInstrumenter,
-        ],
-      },
-      stats: { colors: true, reasons: true },
-      debug: true,
-      plugins: [new webpack.NoErrorsPlugin()],
+    mime: {
+      'text/x-typescript': ['ts','tsx']
     },
-
-    webpackServer: {
-      noInfo: true, // prevent console spamming when running in Karma!
+    coverageIstanbulReporter: {
+      reports: [ 'html', 'lcovonly' ],
+      fixWebpackSourcePaths: true
     },
-
-    reporters: ['spec', 'coverage'],
-    // only output json report to be remapped by remap-istanbul
-    coverageReporter: {
-      reporters: [
-        { type: 'json' },
-        { type: 'html' },
-      ],
-      dir: './coverage/',
-      subdir: (browser) => {
-        return browser.toLowerCase().split(/[ /-]/)[0]; // returns 'chrome'
-      },
+    angularCli: {
+      environment: 'dev'
     },
-
-    port: 9999,
+    reporters: config.angularCli && config.angularCli.codeCoverage
+              ? ['progress', 'coverage-istanbul']
+              : ['progress', 'kjhtml'],
+    port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['PhantomJS'], // Alternatively: 'Chrome'
-    captureTimeout: 6000,
-    singleRun: true,
+    browsers: ['Chrome'],
+    singleRun: false
   });
 };
