@@ -1,20 +1,20 @@
 {
   "compileOnSave": false,
-  "buildOnSave": false,
   "compilerOptions": {
-    "module": "commonjs",
+    "outDir": "./dist/out-tsc",
+    "baseUrl": "src",
+    "sourceMap": true,
+    "declaration": false,
     "moduleResolution": "node",
-    "target": "es5",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "noImplicitAny": false,
-    "removeComments": false,
-    "inlineSourceMap": true,
-    "noEmitHelpers": true
-  },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "shims"
-  ]
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2016",
+      "dom"
+    ]
+  }
 }

@@ -1,2 +1,2 @@
-import { MultiSelectComponent } from "./raw-multiselect.component.ts";
+import { MultiSelectComponent } from "./hyper-multiselect.component";
 export { MultiSelectComponent };

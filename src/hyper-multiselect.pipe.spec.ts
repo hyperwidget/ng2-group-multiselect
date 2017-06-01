@@ -1,12 +1,6 @@
 
-import {
-  beforeEach,
-  describe,
-  expect,
-  it,
-} from '@angular/core/testing';
 
-import { FilterPipe } from './raw-multiselect.pipe.ts';
+import { FilterPipe } from './hyper-multiselect.pipe';
 
 describe('Side nav filter: Pipe', () => {
   let pipe: FilterPipe;
@@ -29,7 +23,7 @@ describe('Side nav filter: Pipe', () => {
   const demo1Vals = [{ id: 1, dispVal: "Blue Jays" }, { id: 2, dispVal: "Maple Leafs" }, { id: 3, dispVal: "Raptors" }, { id: 4, dispVal: "Argos" }];
 
   const filteredDemo1Vals = [{ id: 3, dispVal: "Raptors" }, { id: 4, dispVal: "Argos" }];
-  const filteredDemo1Vals2 = [{ id: 2, dispVal: "Maple Leafs" },{ id: 3, dispVal: "Raptors" }];
+  const filteredDemo1Vals2 = [{ id: 2, dispVal: "Maple Leafs" }, { id: 3, dispVal: "Raptors" }];
   const filteredDemo1Vals3 = [{ id: 1, dispVal: "Blue Jays" }];
 
 });
